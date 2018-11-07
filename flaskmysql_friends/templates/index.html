@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>MySQL friends</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|Shadows+Into+Light" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/bootstrap4-daydream.min.css">
+</head>
+<body>
+
+  
+  <div class="jumbotron bg-primary text-center text-white mb-0 radius-0">
+    <div class="container">
+      <h1 class="display-3 text-white text-handwriting text-uppercase">these are not</h1>
+      <h1 class="display-1 text-success text-uppercase title-margin-fix">my friends</h1>
+    </div>
+  </div>
+
+
+  <div class="container py-5">
+    <h1>People I've heard of:</h1>
+    
+<!-- db table -->
+  <table class="table table-hover table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Occupation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for friend in friends%}
+      <tr>
+        <td>{{ friend['id'] }}</td>
+        <td>{{ friend['first_name'] }}</td>
+        <td>{{ friend['last_name'] }}</td>
+        <td>{{ friend['occupation'] }}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+<!-- addafriend -->
+      <h1>Add a Person</h1>
+      <form action='/create_friend'method='post'autocomplete="off">
+          <div class="input-group mb-3">
+            <input type="text"class="form-control"placeholder="First Name:"name="first_name">
+          </div>
+          <div class="input-group mb-3">
+              <input type="text"class="form-control"placeholder="Last Name:"name="last_name">
+            </div>
+          <div class="input-group mb-3">
+              <input type="text"class="form-control"placeholder="Occupation:"name="occupation">
+            </div>
+          <button class="btn btn-outline-primary btn-block">Add to Database</button>
+       </form>
+
+    <sub>copywrong 2018</sub><br>
+    
+
+   
+  </div>
+  </body>
+</html>
